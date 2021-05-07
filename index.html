@@ -21,48 +21,48 @@
     <nav class="nav bd-container">
       <a href="#" class="nav__logo">TS</a>
 
-      <div class="nav_menu" id="nav-menu">
+      <div class="nav__menu" id="nav-menu">
         <ul class="nav__list">
 
           <li class="nav__item">
-            <a href="#home" class="nav__link">
-                <i class="bx bx-home"></i>Home
+            <a href="#home" class="nav__link active-link">
+                <i class="bx bx-home nav__icon"></i>Home
             </a>
           </li>
 
           <li class="nav__item">
             <a href="#profile" class="nav__link">
-              <i class='bx bx-user' ></i>Profile
+              <i class='bx bx-user nav__icon' ></i>Profile
             </a>
           </li>
 
           <li class="nav__item">
             <a href="#education" class="nav__link">
-              <i class='bx bx-book' ></i>Education
+              <i class='bx bx-book nav__icon' ></i>Education
             </a>
           </li>
 
           <li class="nav__item">
             <a href="#sklills" class="nav__link">
-              <i class='bx bx-receipt' ></i>Skills
+              <i class='bx bx-receipt nav__icon' ></i>Skills
             </a>
           </li>
 
           <li class="nav__item">
             <a href="#experience" class="nav__link">
-              <i class='bx bx-briefcase-alt' ></i>Experience
+              <i class='bx bx-briefcase-alt nav__icon' ></i>Experience
             </a>
           </li>
 
           <li class="nav__item">
             <a href="#certificates" class="nav__link">
-              <i class='bx bx-award' ></i>Certificates
+              <i class='bx bx-award nav__icon' ></i>Certificates
             </a>
           </li>
 
           <li class="nav__item">
             <a href="#references" class="nav__link">
-              <i class='bx bx-link-external' ></i>References
+              <i class='bx bx-link-external nav__icon' ></i>References
             </a>
           </li>
 
@@ -77,7 +77,52 @@
     </nav>
   </header>
 
-  <main class="l-main bd-container"></main>
+  <main class="l-main bd-container">
+
+    <!-- All elements within this section, is generated in PDF -->
+    <div class="resume">
+
+      <div class="resume__left">
+        <!-- ================= HOME =================== -->
+
+        <section class="home" id="home">
+          <div class="home__container section bd-grid">
+            <div class="home__data bd-grid">
+              <img src="assets//img/face img black 2.jpg" alt="" class="home__img">
+
+              <h1 class="home__title">STANISZ <b>TOMASZ</b></h1>
+
+              <h3 class="home__profesion">Web developer</h3>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Button to download your CV saved in the pdf folder. Available for mobile  -->
+
+        <div>
+          <a download="assets/pdf" class="home__button-movil">Download</a>
+
+        </div>
+      </div>
+
+
+      <div class="home__address bd-grid">
+        <span class="home__information"><i class='bx bx-map home__icon' ></i> Al. Wyscigowa 14a, Warsaw - Poland </span>
+
+        <span class="home__information"><i class='bx bx-envelope home__icon' ></i> fremen1990@gmail.com </span>
+
+        <span class="home__information"><i class='bx bx-phone home__icon'></i>  725-214-022 </span>
+
+      </div>
+
+
+      <div class="resumr__right"></div>
+
+    </div>
+
+
+  </main>
 
   <!-- ============================ SCROLL TOP ========================== -->
 
