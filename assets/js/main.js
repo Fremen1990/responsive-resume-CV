@@ -52,6 +52,19 @@ function scrollActive() {
   });
 }
 
+// ==================== SHOW SCROLL TOP =========================//
+
+function scrollTop() {
+  const scrollTop = document.getElementById("scroll-top");
+  //When th scroll is higher than 560 viewporrt heigh, add the show-scroll class to the tag with scroll
+  if (this.scrollY >= 200) scrollTop.classList.add("show-scroll");
+  else scrollTop.classList.remove("show-scroll");
+}
+
+window.addEventListener("scroll", scrollTop);
+
+// ==================== DARK LIGHT THEME =========================//
+
 // ==================== SCROLL THROUGH MOBILE BROWSER BAR =========================//
 
 window.addEventListener("load", function () {
