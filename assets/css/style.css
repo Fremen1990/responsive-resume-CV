@@ -9,7 +9,6 @@
 }
 
 /* ============= Variables CSS ===============*/
-
 :root {
   --header-height: 3rem;
 
@@ -64,7 +63,6 @@ html {
 /* =============== Generate PDF button ================== */
 
 /* =============== Classes modified to reduce size and print on A4 sheet ================== */
-
 body {
   margin: 0 0 var(--header-height) 0;
   padding: 0;
@@ -104,7 +102,6 @@ img {
 }
 
 /* =============== CLASS CSS ================== */
-
 .section {
   padding: 1.5rem 0;
 }
@@ -120,7 +117,6 @@ img {
 }
 
 /* ===============  LAYOUT ================== */
-
 .bd-container {
   max-width: 968px;
   width: calc(100%-3rem);
@@ -145,7 +141,6 @@ img {
 }
 
 /* ===============  NAV ================== */
-
 .nav {
   height: var(--header-height);
   display: flex;
@@ -216,3 +211,92 @@ img {
 }
 
 /* ===============  HOME ================== */
+.home {
+  position: relative;
+}
+
+.home__container {
+  gap: 3rem;
+}
+
+.home__data {
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.home__img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  justify-self: center;
+  margin-bottom: var(--mb-1);
+}
+
+.home__title {
+  font-size: var(--h1-font-size);
+}
+
+.home__profession {
+  font-size: var(--normal-font-size);
+  margin-bottom: var(--mb-1);
+}
+
+.home__address {
+  gap: 1rem;
+}
+
+.home__information {
+  display: flex;
+  align-items: center;
+  font-size: var(--small-font-size);
+}
+
+.home__icon {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.home__button-movil {
+  display: inline-block;
+  border: 2px solid var(--text-color);
+  color: var(--title-color);
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  transition: 0.3s;
+  font-weight: var(--font-medium);
+  margin-top: var(--mb-3);
+}
+
+.home__button-movil:hover {
+  background-color: var(--text-color);
+  color: var(--container-color);
+}
+
+/* ===============  SOCIAL ================== */
+.social__container {
+  grid-template-columns: max-content;
+  gap: 1rem;
+}
+
+.social__link {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+}
+
+.social__link:hover {
+  color: var(--title-color);
+}
+
+.social__icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+/* ===============  PROFILE ================== */
+.profile__description {
+  text-align: center;
+}
+
+/* ===============  EDUCATION AND EXPERIENCE ================== */
