@@ -30,7 +30,7 @@ navLink.forEach((n) => n.addEventListener("click", linkAction));
 
 // ==========================  SCROLL SECTIONS ACTIVE LINK =============================//
 
-const sections = document.querySelectorAll("section[id");
+const sections = document.querySelectorAll("section[id]");
 
 function scrollActive() {
   const scrollY = window.pageYOffset;
@@ -61,7 +61,7 @@ window.addEventListener("load", function () {
 
   setTimeout(function () {
     // This hides the address bar:
-    window.scrollTo(0, chromeH);
+    window.scrollTo(0, 30);
     // console.log(chromeH);
     // console.log("scrolling");
   }, 0);
