@@ -64,18 +64,3 @@ function scrollTop() {
 window.addEventListener("scroll", scrollTop);
 
 // ==================== DARK LIGHT THEME =========================//
-
-// ==================== SCROLL THROUGH MOBILE BROWSER BAR =========================//
-
-window.addEventListener("load", function () {
-  const chromeH = window.innerHeight - window.outerHeight;
-
-  // console.log(chromeH);
-
-  setTimeout(function () {
-    // This hides the address bar:
-    window.scrollTo(0, 30);
-    // console.log(chromeH);
-    // console.log("scrolling");
-  }, 0);
-});
