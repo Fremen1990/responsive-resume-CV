@@ -648,7 +648,8 @@ img {
   }
 
   .home__button-movil,
-  .home__button-movil-dark {
+  .home__button-movil-dark,
+  .home__button-movil-active {
     display: none;
   }
 
