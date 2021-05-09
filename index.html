@@ -1,3 +1,6 @@
+<!--------- 1 hour  ---------->
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,10 +16,10 @@
 
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <link rel="icon" type="image/png" href="/assets/img/TS_FavIcon-big.png" />
+  <link rel="icon" type="image/png" href="/assets/img/TS_FavIcon-small.png" />
 
 
-  <title>Responsive resume - Tomasz Stanisz - CV Finance</title>
+  <title>Responsive resume - Tomasz Stanisz - CV Web Developer</title>
 </head>
 
 <body>
@@ -85,28 +88,30 @@
   <main class="l-main bd-container">
 
     <!-- All elements within this section, is generated in PDF -->
-    <div class="resume">
+    <div class="resume" id="area-cv">
 
       <div class="resume__left">
         <!-- ================= HOME =================== -->
         <section class="home" id="home">
           <div class="home__container section bd-grid">
             <div class="home__data bd-grid">
-              <img src="assets//img/face img -mid color.jpg" alt="" class="home__img">
+              <img src="assets//img/Thomas CV img - black-white.jpg" alt="" class="home__img">
 
               <h1 class="home__title"> TOMASZ STANISZ</h1>
               <h3 class="home__profession">Web developer</h3>
 
               <!-- Button to download your CV saved in the pdf folder. Available for mobile  -->
               <div>
-                <a download="assets/pdf" class="home__button-movil">Download</a>
+                <a href="assets/pdf/Tomasz Stanisz - Resume - Light.pdf" download="Tomasz Stanisz - Resume" class="home__button-movil home__button-movil-active" id="home__button-movil-light">Download</a>
+                <a href="assets/pdf/Tomasz Stanisz - Resume - Dark.pdf" download="Tomasz Stanisz - Resume" class="home__button-movil-dark" id="home__button-movil-dark" >Download</a>
               </div>
 
             </div>
           </div>
 
           <div class="home__address bd-grid">
-            <span class="home__information"><i class='bx bx-map home__icon' ></i> Al. Wyscigowa 14a, Warsaw - Poland </span>
+
+            <span class="home__information"><i class='bx bx-map home__icon' ></i>  Warsaw - Poland </span>
 
             <span class="home__information"><i class='bx bx-envelope home__icon' ></i> fremen1990@gmail.com </span>
 
@@ -119,13 +124,9 @@
 
 
           <!-- Button to generate and download the pdf. Available for desktop -->
-
-
-
+          <i class='bx bx-download generate-pdf' title="Generate PDF" id="resume-button"></i>
 
         </section>
-
-
 
         <!-- ================= SOCIAL =================== -->
         <section class="social section">
@@ -170,7 +171,7 @@
                 <span class="education__line"></span>
               </div>
 
-              <div class="edcuation__date bd-grid">
+              <div class="edcuation__data bd-grid">
                 <h3 class="education_title">ACCA F1 - F5 Student</h3>
                 <span class="education__studies">ACCA</span>
                 <span class="education__year">2015 - present </span>
@@ -183,7 +184,7 @@
                 <span class="education__line"></span>
               </div>
 
-              <div class="edcuation__date bd-grid">
+              <div class="edcuation__data bd-grid">
                 <h3 class="education_title">MASTER DEGREE <br> Finance and Accounting</h3>
                 <span class="education__studies">University of Lodz</span>
                 <span class="education__year">2012-2014</span>
@@ -197,7 +198,7 @@
                 <!-- <span class="education__line"></span> -->
               </div>
 
-              <div class="edcuation__date bd-grid">
+              <div class="edcuation__data bd-grid">
                 <h3 class="education_title">BACHELOR DEGREE <br>Finance and Accounting</h3>
                 <span class="education__studies">University of Lodz</span>
                 <span class="education__year">2009-2012</span>
@@ -250,12 +251,7 @@
 
           </div>
         </section>
-
-
-
-
       </div>
-
       <div class="resume__right">
 
         <!-- ============================ EXPERIENCE ========================== -->
@@ -429,13 +425,7 @@
           </div>
         </section>
       </div>
-
-
-
-
     </div>
-
-
     </div>
   </main>
 
@@ -444,11 +434,10 @@
     <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
 </a>
 
-
-
-
-
   <!-- ============================ HTML2PDF ========================== -->
+  <script src="assets/js/html2pdf.bundle.min.js"></script>
+
+
 
   <!--  MAIN JS -->
   <script src="assets/js/main.js"></script>
