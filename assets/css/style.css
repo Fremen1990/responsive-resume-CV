@@ -647,7 +647,8 @@ img {
     gap: 1.5rem;
   }
 
-  .home__button-movil {
+  .home__button-movil,
+  .home__button-movil-dark {
     display: none;
   }
 
