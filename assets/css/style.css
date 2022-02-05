@@ -57,6 +57,7 @@ html {
 /* =============== Variables Dark Theme ================== */
 body.dark-theme {
   --title-color: #f2f2f2;
+  /*--title-color: #ff8906;*/
   --text-color: #bfbfbf;
   --container-color: #212121;
   --container-color-alt: #181616;
@@ -249,14 +250,18 @@ img {
 /* ===============  LAYOUT ================== */
 .bd-container {
   max-width: 968px;
-  width: calc(100%-3rem);
+  /*width: calc(100%-3rem);*/
   margin-left: var(--mb-3);
   margin-right: var(--mb-3);
 }
 
 .bd-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
+}
+
+.formal_edcuation__data{
+  gap:0.5rem;
 }
 
 .l-header {
@@ -598,7 +603,7 @@ img {
 @media screen and (max-width: 320px) {
   .nav__list {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem, 0.5rem;
+    /*gap: 1rem, 0.5rem;*/
   }
 }
 
