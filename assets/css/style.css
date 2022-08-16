@@ -123,6 +123,7 @@ body.scale-cv {
   margin-bottom: 0.75rem;
 }
 
+
 .scale-cv .resume {
   height: 1122px;
 }
@@ -571,6 +572,19 @@ img {
   margin-bottom: 0.25rem;
 }
 
+
+.icon-color{
+height: 25px;
+  display: block;
+}
+
+.icon-gray{
+  display: none;
+  filter: invert(50%);
+width: 25px;
+}
+
+
 /*------------ Scroll top ------------ */
 .scrolltop {
   position: fixed;
@@ -636,8 +650,10 @@ img {
 
   .resume__left,
   .resume__right {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
+
+
 
   .generate-pdf {
     display: inline;
@@ -646,6 +662,10 @@ img {
   .section-title,
   .profile__description {
     text-align: initial;
+  }
+
+  .section-title__span-icon{
+    font-size: 12px;
   }
 
   .home__container {

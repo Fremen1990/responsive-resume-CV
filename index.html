@@ -106,8 +106,8 @@
 
                         <!-- Button to download your CV saved in the pdf folder. Available for mobile  -->
                         <div>
-                            <a href="assets/pdf/Tomasz Stanisz - Resume - Light.pdf" download="Tomasz Stanisz - Resume"
-                               class="home__button-movil home__button-movil-active" id="home__button-movil-light">Download</a>
+<!--                            <a href="assets/pdf/Tomasz Stanisz - Resume - Light.pdf" download="Tomasz Stanisz - Resume"-->
+<!--                               class="home__button-movil home__button-movil-active" id="home__button-movil-light">Download</a>-->
                             <a href="assets/pdf/Tomasz Stanisz - Resume - Dark.pdf" download="Tomasz Stanisz - Resume"
                                class="home__button-movil-dark" id="home__button-movil-dark">Download</a>
                         </div>
@@ -120,7 +120,7 @@
                     <span class="home__information"><i class='bx bx-map home__icon'></i>  Warsaw - Poland </span>
 
 
-                    <a href="https://www.devthomas.pl/" target="_blank" class="social__link">
+                    <a href="https://www.devthomas.pl" target="_blank" class="social__link">
 
                         <svg class="home__icon"
                              xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -153,7 +153,10 @@
 
 
                 <!-- Button to generate and download the pdf. Available for desktop -->
-                <i class='bx bx-download generate-pdf' title="Generate PDF" id="resume-button"></i>
+<!--                <i class='bx bx-download generate-pdf' title="Generate PDF" id="resume-button"></i>-->
+                <a href="assets/pdf/Tomasz Stanisz - Resume - Dark.pdf" download="Tomasz Stanisz - Resume"
+                   class="bx bx-download generate-pdf" id="home__button-movil-light">
+                </a>
 
             </section>
 
@@ -167,16 +170,21 @@
                         <i class='bx bxl-github social__icon'></i> GitHub
                     </a>
 
+                    <a href="https://www.linkedin.com/in/tomasz-stanisz" target="_blank" class="social__link">
+                        <i class='bx bxl-linkedin-square social__icon'></i> LinkedIn
+                    </a>
+
                     <a href="https://app.pluralsight.com/profile/tomasz-stanisz" target="_blank" class="social__link">
                         <i class='bx bx-play-circle social__icon'></i> Pluralsight
                     </a>
 
                     <a href="https://www.hackerrank.com/fremen1990?hr_r=1" target="_blank" class="social__link">
-                        <i class='bx bxs-invader social__icon'></i> HakerRank
+                        <i class='bx bx-code-block social__icon'></i>HakerRank
+
                     </a>
 
-                    <a href="https://www.linkedin.com/in/tomasz-stanisz-85818683/" target="_blank" class="social__link">
-                        <i class='bx bxl-linkedin-square social__icon'></i> LinkedIn
+                    <a href="https://www.codewars.com/users/ThomasDevs" target="_blank" class="social__link">
+                        <i class='bx bxs-invader social__icon'></i> CodeWars
                     </a>
 
 
@@ -189,9 +197,8 @@
 
                 <p class="profile__description">Hi!,
                     <br>
-                    My name is Tomasz, i am tech lover, highly motivated with creation
-                    websites and applications, inspired with new technologies and codding. Trying to change my career
-                    completely and do what i wanted to do from childhood 😉
+                    My name is Tomasz, i am tech lover, highly motivated with learning new technologies and codding. Want to change my career
+                    from Finance to Technology and do what I wanted to do from my childhood 😉
                 </p>
 
             </section>
@@ -211,7 +218,7 @@
 
                         <div class="experience__data bd-grid">
                             <h3 class="experience__title">Senior General Ledger Analyst</h3>
-                            <span class="experience__company">From 2020 - still  | Marsh McLennan</span>
+                            <span class="experience__company">From 2020 - 06/2022  | Marsh McLennan</span>
                             <p class="experience__description">Work on financial data analysis and cooperation with
                                 global stakeholders for problem solving</p>
                         </div>
@@ -286,121 +293,54 @@
 
             </section>
 
-            <!-- ============================ SKILLS ========================== -->
-            <!--            <section class="skills section" id="skills">-->
-            <!--                <h2 class="section-title">Skills</h2>-->
-            <!--                <div class="skills__content bd-grid">-->
-
-            <!--                    <ul class="skils__data">-->
-            <!--                        <li class="skills__name">-->
-            <!--                            <span class="skills__circle"></span>Html-->
-            <!--                        </li>-->
-
-            <!--                        <li class="skills__name">-->
-            <!--                            <span class="skills__circle"></span>Css-->
-            <!--                        </li>-->
-
-            <!--                        <li class="skills__name">-->
-            <!--                            <span class="skills__circle"></span>Bootstrap-->
-            <!--                        </li>-->
-
-            <!--                        <li class="skills__name">-->
-            <!--                            <span class="skills__circle"></span>JavaScript-->
-            <!--                        </li>-->
-
-
-            <!--                    </ul>-->
-
-
-            <!--                    <ul class="skils__data">-->
-            <!--                        <li class="skills__name">-->
-            <!--                            <span class="skills__circle"></span>React-->
-            <!--                        </li>-->
-
-            <!--                        <li class="skills__name">-->
-            <!--                            <span class="skills__circle"></span>Node-->
-            <!--                        </li>-->
-
-            <!--                        <li class="skills__name">-->
-            <!--                            <span class="skills__circle"></span>GIT-->
-            <!--                        </li>-->
-
-            <!--                        <li class="skills__name">-->
-            <!--                            <span class="skills__circle"></span>Phaser-->
-            <!--                        </li>-->
-            <!--                    </ul>-->
-
-            <!--                </div>-->
-            <!--            </section>-->
-
-
         </div>
         <div class="resume__right">
 
             <!-- ============================ TECHNOLOGIES ========================== -->
             <section class="interests section">
 
-                <h2 class="section-title">TECH STACK</h2>
+
+
+                <h2 class="section-title">TECH STACK      <span id="section-title__span-icon" class="section-title__span-icon">icon</span></h2>
 
                 <div class="interests__container bd-grid">
 
                     <div class="interests__content">
-                        <i class="fab fa-html5 interests__icon"></i>
+                        <i class="fab fa-html5 interests__icon icon-gray"></i>
+                        <img class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/html-5.676e8188.svg" alt="HTML icon">
+
                         <span class="interests__name">HTML</span>
                     </div>
 
                     <div class="interests__content">
-                        <i class="fab fa-css3-alt interests__icon"></i>
+                        <i class="fab fa-css3-alt interests__icon icon-gray"></i>
+                        <img class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/css3.15678ffe.svg" alt="CSS icon">
+
                         <span class="interests__name">CSS</span>
                     </div>
 
                     <div class="interests__content">
-                        <i class="fab fa-sass interests__icon"></i>
-                        <span class="interests__name">SASS</span>
-                    </div>
+                        <i class="fab fa-bootstrap interests__icon icon-gray"></i>
+                        <img class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/bootstrap-4.ffded238.svg" alt="Bootstrap icon">
 
-                    <div class="interests__content">
-                        <i class="fab fa-bootstrap interests__icon"></i>
                         <span class="interests__name">Bootstrap</span>
                     </div>
 
                     <div class="interests__content">
-                        <i class="fab fa-js-square interests__icon"></i>
+                        <img class="fab interests__icon styledComponents icon-gray" src="https://icons-for-free.com/download-icon-components-1324440239266528291_256.ico" alt="Styled Components icon">
+                        <img class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/styled-components.9ceedb83.svg" alt="Styled Components icon">
+                        <span class="interests__name" >Styled comp</span>
+                    </div>
+
+                    <div class="interests__content">
+                        <i class="fab fa-js-square interests__icon icon-gray"></i>
+                        <img class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/javascript.2d2e31cc.svg" alt="JavaScript icon">
+
                         <span class="interests__name">JavaScript</span>
                     </div>
 
                     <div class="interests__content">
-                        <i class="fab fa-react interests__icon"></i>
-                        <span class="interests__name">React</span>
-                    </div>
-
-
-                    <div class="interests__content">
-                        <i class="fab fa-node interests__icon"></i>
-                        <span class="interests__name">NodeJS</span>
-                    </div>
-
-                    <div class="interests__content">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                             width="24" height="24"
-                             viewBox="0 0 172 172"
-                             style=" fill:#000000;">
-                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                               stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                               font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                               style="mix-blend-mode: normal">
-                                <path d="M0,172v-172h172v172z" fill="none"></path>
-                                <g fill="#666666">
-                                    <path d="M28.66667,14.33333c-7.91917,0 -14.33333,6.41417 -14.33333,14.33333v114.66667c0,7.91917 6.41417,14.33333 14.33333,14.33333h50.16667v-14.33333h-50.16667v-28.66667h50.16667v-3.58333c0,-3.70517 0.47759,-7.29567 1.30176,-10.75h-51.46843v-71.66667h57.33333v57.71126c3.66217,-5.81933 8.54983,-10.77497 14.33333,-14.4873v-43.22396c0,-7.91917 -6.41417,-14.33333 -14.33333,-14.33333zM43,43v14.33333h28.66667v-14.33333zM43,71.66667v14.33333h28.66667v-14.33333zM125.41667,78.83333c-17.80917,0 -32.25,14.44083 -32.25,32.25v46.58333h64.5v-46.58333c0,-17.80917 -14.44083,-32.25 -32.25,-32.25zM114.66667,100.33333c3.956,0 7.16667,3.21067 7.16667,7.16667c0,3.956 -3.21067,7.16667 -7.16667,7.16667c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667c0,-3.956 3.21067,-7.16667 7.16667,-7.16667zM136.16667,100.33333c3.956,0 7.16667,3.21067 7.16667,7.16667c0,3.956 -3.21067,7.16667 -7.16667,7.16667c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667c0,-3.956 3.21067,-7.16667 7.16667,-7.16667zM57.33333,121.83333c-3.95804,0 -7.16667,3.20863 -7.16667,7.16667c0,3.95804 3.20863,7.16667 7.16667,7.16667c3.95804,0 7.16667,-3.20863 7.16667,-7.16667c0,-3.95804 -3.20863,-7.16667 -7.16667,-7.16667zM125.41667,121.83333c9.89717,0 17.91667,3.21067 17.91667,7.16667c0,3.956 -8.0195,14.33333 -17.91667,14.33333c-9.89717,0 -17.91667,-10.37733 -17.91667,-14.33333c0,-3.956 8.0195,-7.16667 17.91667,-7.16667z"></path>
-                                </g>
-                            </g>
-                        </svg>
-                        <span class="interests__name">Express</span>
-                    </div>
-
-
-                    <div class="interests__content">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="icon-gray"
                              width="24" height="24"
                              viewBox="0 0 172 172"
                              style=" fill:#000000;">
@@ -414,12 +354,75 @@
                                 </g>
                             </g>
                         </svg>
+                        <img class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/typescript.3de182d2.svg" alt="TypeScript icon">
+
                         <span class="interests__name">TypeScript</span>
                     </div>
 
 
                     <div class="interests__content">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        <i class="fab fa-react interests__icon icon-gray"></i>
+                        <img class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/react.4009eef3.svg" alt="React icon">
+
+                        <span class="interests__name">React</span>
+                    </div>
+
+                    <div class="interests__content">
+                        <img  class="fab interests__icon redux icon-gray" src="https://img.icons8.com/material/480/redux.png" alt="Redux icon">
+                        <img class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/redux.aa0a3376.svg" alt="Redux icon">
+
+                        <span class="interests__name">Redux</span>
+                    </div>
+                    
+
+
+                    <div class="interests__content">
+                        <i class="fab fa-node interests__icon icon-gray"></i>
+                        <img class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/nodejs.a1231528.svg" alt="NodeJS icon">
+
+                        <span class="interests__name">NodeJS</span>
+                    </div>
+
+                    <div class="interests__content">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="icon-gray"
+                             width="24" height="24"
+                             viewBox="0 0 172 172"
+                             style=" fill:#000000;">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                               stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                               font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                               style="mix-blend-mode: normal">
+                                <path d="M0,172v-172h172v172z" fill="none"></path>
+                                <g fill="#666666">
+                                    <path d="M28.66667,14.33333c-7.91917,0 -14.33333,6.41417 -14.33333,14.33333v114.66667c0,7.91917 6.41417,14.33333 14.33333,14.33333h50.16667v-14.33333h-50.16667v-28.66667h50.16667v-3.58333c0,-3.70517 0.47759,-7.29567 1.30176,-10.75h-51.46843v-71.66667h57.33333v57.71126c3.66217,-5.81933 8.54983,-10.77497 14.33333,-14.4873v-43.22396c0,-7.91917 -6.41417,-14.33333 -14.33333,-14.33333zM43,43v14.33333h28.66667v-14.33333zM43,71.66667v14.33333h28.66667v-14.33333zM125.41667,78.83333c-17.80917,0 -32.25,14.44083 -32.25,32.25v46.58333h64.5v-46.58333c0,-17.80917 -14.44083,-32.25 -32.25,-32.25zM114.66667,100.33333c3.956,0 7.16667,3.21067 7.16667,7.16667c0,3.956 -3.21067,7.16667 -7.16667,7.16667c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667c0,-3.956 3.21067,-7.16667 7.16667,-7.16667zM136.16667,100.33333c3.956,0 7.16667,3.21067 7.16667,7.16667c0,3.956 -3.21067,7.16667 -7.16667,7.16667c-3.956,0 -7.16667,-3.21067 -7.16667,-7.16667c0,-3.956 3.21067,-7.16667 7.16667,-7.16667zM57.33333,121.83333c-3.95804,0 -7.16667,3.20863 -7.16667,7.16667c0,3.95804 3.20863,7.16667 7.16667,7.16667c3.95804,0 7.16667,-3.20863 7.16667,-7.16667c0,-3.95804 -3.20863,-7.16667 -7.16667,-7.16667zM125.41667,121.83333c9.89717,0 17.91667,3.21067 17.91667,7.16667c0,3.956 -8.0195,14.33333 -17.91667,14.33333c-9.89717,0 -17.91667,-10.37733 -17.91667,-14.33333c0,-3.956 8.0195,-7.16667 17.91667,-7.16667z"></path>
+                                </g>
+                            </g>
+                        </svg>
+                        <img class="fab interests__icon icon-color" src="https://spng.pngfind.com/pngs/s/136-1363736_express-js-icon-png-transparent-png.png" alt="Express icon">
+
+                        <span class="interests__name">Express</span>
+                    </div>
+
+
+                    <div class="interests__content">
+<!--                        <i class="fab fa-sass interests__icon"></i>-->
+<!--                        <span class="interests__name">SASS</span>-->
+<!--                        <i class='bx bxs-injection'></i>-->
+                        <img class="fab interests__icon nestjs icon-gray" src="https://icons-for-free.com/iconfiles/png/512/nestjs-1324440202731331517.png" alt="NestJS Icon" >
+                        <img class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/nestjs.c596eb94.svg" alt="NestJS icon">
+
+                        <span class="interests__name">NestJS</span>
+                    </div>
+
+                    <div class="interests__content">
+                        <img  class="fab interests__icon typeorm icon-gray" src="https://cdn.iconscout.com/icon/free/png-256/typeform-282710.png" alt="TypeORM icon">
+                        <img  class="fab interests__icon icon-color" src="https://cdn.iconscout.com/icon/free/png-256/typeform-282710.png" alt="TypeORM icon">
+
+                        <span class="interests__name">TypeORM</span>
+                    </div>
+
+                    <div class="interests__content">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="icon-gray"
                              width="24" height="24"
                              viewBox="0 0 226 226"
                              style=" fill:#000000;">
@@ -433,11 +436,13 @@
                                 </g>
                             </g>
                         </svg>
+                        <img  class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/mongodb.2985235d.svg" alt="MongoDB icon">
+
                         <span class="interests__name">MongoDB</span>
                     </div>
 
                     <div class="interests__content">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="icon-gray"
                              width="24" height="24"
                              viewBox="0 0 172 172"
                              style=" fill:#000000;">
@@ -451,14 +456,44 @@
                                 </g>
                             </g>
                         </svg>
+                        <img  class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/mySql.cc28ccb3.svg" alt="MySQL icon">
+
                         <span class="interests__name">MySQL</span>
                     </div>
 
 
+                    
+                    
                     <div class="interests__content">
-                        <i class="fab fa-git-alt interests__icon"></i>
+<!--                        <img  class="fab interests__icon jest" src="https://cdn.iconscout.com/icon/free/png-256/jest-3627087-3029495.png" alt="Jest icon">-->
+                        <img  class="fab interests__icon jest icon-gray" src="https://www.devthomas.pl/static/media/testing_jest.369f0112.webp" alt="Jest icon">
+                        <img  class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/testing_jest.369f0112.webp" alt="Jest icon">
+
+                        <span class="interests__name">Jest</span>
+                    </div>
+
+                    <div class="interests__content">
+                        <img  class="fab interests__icon jest icon-gray" src="https://icons-for-free.com/download-icon-cypress-1324440144114984250_256.icns" alt="Jest icon">
+                        <img  class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/testing_cypress.a9574ba6.png" alt="Cypress icon">
+
+                        <span class="interests__name">Cypress</span>
+                    </div>
+
+
+                    <div class="interests__content">
+                        <i class="fab fa-git-alt interests__icon icon-gray"></i>
+                        <img  class="fab interests__icon icon-color" src="https://www.devthomas.pl/static/media/git-icon.1190a19c.svg" alt="GIT icon">
+
                         <span class="interests__name">GIT</span>
                     </div>
+
+       <div class="interests__content">
+                        <img  class="fab interests__icon jest icon-gray" src="https://icons-for-free.com/download-icon-Docker-1324888714233944531_256.png" alt="Jest icon">
+                        <img  class="fab interests__icon icon-color" src="https://raidzerodotcom.files.wordpress.com/2017/07/whale20logo332_5.png" alt="Docker icon">
+                        <span class="interests__name">Docker</span>
+                    </div>
+
+
 
 
                 </div>
@@ -471,33 +506,44 @@
 
                 <div class="certificate__container bd-grid">
 
+<!--                    <div class="certificate__content">-->
+<!--                        <h3 class="certificate__title">DevThomas Portfolio</h3>-->
+<!--                        <a href="https://www.devthomas.pl/" target="_blank">https://www.devthomas.pl</a>-->
+
+<!--                        <p class="certificate__description">Personal portfolio prepared in ReactJS using Bootstrap,-->
+<!--                            and additional effects.-->
+<!--                        </p>-->
+
+<!--                    </div>-->
                     <div class="certificate__content">
-                        <h3 class="certificate__title">DevThomas Portfolio</h3>
-                        <a href="https://www.devthomas.pl/" target="_blank">https://www.devthomas.pl</a>
+                        <h3 class="certificate__title">NestJS React TypeScript Head Hunter</h3>
+                        <a href="https://github.com/Fremen1990/head-hunter-frontend" target="_blank">https://github.com/Fremen1990/head-hunter-frontend</a>
+                        <a href="https://github.com/Fremen1990/head-hunter-backend" target="_blank">https://github.com/Fremen1990/head-hunter-backend</a>
+                        <p class="certificate__description"> Project Head Hunter is a final bonus stage of 1 year Full Stack JS Bootcamp. I tried my hand as Scrum Master of 5-7 people team. The application brings together all knowledge and technologies which we were learning throughout the bootcamp, we also dared to learn and use new techs as redux and styled components during development process. Application is created to connect software developer students with recruiters through admin supervision.</p>
+                    </div>
 
-                        <p class="certificate__description">Personal portfolio prepared in ReactJS using Bootstrap,
-                            Styled-components and additional effects.
-                        </p>
 
+
+                    <div class="certificate__content">
+                        <h3 class="certificate__title">MERN DevSocialMedia with TypeScript</h3>
+                        <a href="https://github.com/Fremen1990/DevSocialMedia-frontend" target="_blank"> https://github.com/Fremen1990/DevSocialMedia-frontend</a>
+                        <a href="https://github.com/Fremen1990/head-hunter-backend" target="_blank"> https://github.com/Fremen1990/head-hunter-backend</a>
+                        <p class="certificate__description"> This is full stack MERN + TypeScript project, the goal of this project was to test all skills gathered in one year full stack bootcamp and to pass final exam.</p>
+                    </div>
+
+                    <div class="certificate__content">
+                        <h3 class="certificate__title">Netflix Clone - React, styled components & Testing </h3>
+                        <a href="https://github.com/Fremen1990/netflix-clone" target="_blank"> https://github.com/Fremen1990/netflix-clone</a>
+                        <p class="certificate__description"> The goal of this project was to get known styled components, firebase and testing with React Testing Library as well as Jest </p>
                     </div>
 
                     <div class="certificate__content">
                         <h3 class="certificate__title">MERN Full Stack E-Commerce</h3>
-                        <a href="http://ecommerce.devthomas.pl/" target="_blank"> http://ecommerce.devthomas.pl</a>
-                        <p class="certificate__description"> This is E-Commerce MERN (Mongo, Express, React, Node) Full
-                            Stack application with user module, admin module, data base connection etc.</p>
+                        <a href="https://github.com/Fremen1990/E-Commerce-MERN-NODE-REACT" target="_blank"> https://github.com/Fremen1990/E-Commerce-MERN-NODE-REACT</a>
+                        <p class="certificate__description"> This is my first E-Commerce MERN Full
+                            Stack application build in Node, Express, React and MongoDB </p>
                     </div>
 
-                    <div class="certificate__content">
-                        <h3 class="certificate__title">CryptoVerse - Cryptocurrencies Tracker</h3>
-                        <a href="https://cryptoapplicationreactjs.netlify.app/" target="_blank">
-                            http://ecommerce.devthomas.pl</a>
-
-                        <p class="certificate__description">CryptoVerse App is showing all current data about
-                            cryptocurrencies from RapirAPI, it is using Tailwind and ChartJS to present crypto price
-                            changes.
-                        </p>
-                    </div>
 
                     <div class="certificate__content">
                         <h3 class="certificate__title">TomPhase - 2d Game in Phaser JS Engine</h3>
@@ -518,6 +564,37 @@
 
                 <div class="experience__container bd-grid">
 
+
+
+                    <div class="experience__content">
+                        <div class="experience__time">
+                            <span class="experience__rounder"></span>
+                            <span class="experience__line"></span>
+                        </div>
+
+                        <div class="experience__data bd-grid">
+                            <h3 class="experience__title">MEGA-K - One year Full-Stack Bootcamp</h3>
+                            <span class="experience__company">From 07/2011 - still </span>
+                            <p class="experience__description">MEGAK it is one year Full Stack bootcamp which will
+                                include JavaScript, Node, Express, MongoDB, TypeScript, React and full stack project
+                                with participation of software house guests.</p>
+                        </div>
+                    </div>
+
+                    <div class="experience__content">
+                        <div class="experience__time">
+                            <span class="experience__rounder"></span>
+                            <span class="experience__line"></span>
+                        </div>
+
+                        <div class="experience__data bd-grid">
+                            <h3 class="experience__title">KursReacta - 12 weeks React training</h3>
+                            <span class="experience__company">From 07/2022 to 09/2022</span>
+                            <p class="experience__description">React Course with Michal Taszycki it is complete 12 weeks React course with all React topic from raw legacy react with class components, until the newest solutions and libraries.</p>
+                        </div>
+
+                    </div>
+
                     <div class="experience__content">
                         <div class="experience__time">
                             <span class="experience__rounder"></span>
@@ -534,21 +611,6 @@
                             <p class="experience__description">React Developer Role and NODE Developer role in
                                 progress with all
                                 necessary tech stacks, current Node Role level 2/3, React Role 1/3</p>
-                        </div>
-                    </div>
-
-                    <div class="experience__content">
-                        <div class="experience__time">
-                            <span class="experience__rounder"></span>
-                            <span class="experience__line"></span>
-                        </div>
-
-                        <div class="experience__data bd-grid">
-                            <h3 class="experience__title">MEGA-K - One year Full-Stack Bootcamp</h3>
-                            <span class="experience__company">From 07/2011 - still </span>
-                            <p class="experience__description">MEGAK it is one year Full Stack bootcamp which will
-                                include JavaScript, Node, Express, MongoDB, TypeScript, React and full stack project
-                                with participation of software house guests.</p>
                         </div>
                     </div>
 
