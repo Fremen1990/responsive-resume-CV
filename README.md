@@ -1,3 +1,3 @@
 # Tomasz Stanisz Resume
 
-<img src="TomaszStanisz-Resume.png"/>
+<img src="TomaszStanisz-Resume.webp"/>
