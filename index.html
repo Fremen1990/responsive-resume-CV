@@ -14,7 +14,7 @@
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://cv.devthomas.pl/"/>
     <meta property="og:title" content="Reonsive CV Tomasz Stanisz"/>
-    <meta property="og:description" content="Responsive resume - Tomasz Stanisz - CV Front End Developer"/>
+    <meta property="og:description" content="Tomasz Stanisz - CV Front End Developer"/>
     <meta property="og:image" content="https://cv.devthomas.pl/TomaszStanisz-Resume.webp"/>
     <!-- Open Graph / Facebook/LinkedIn/Discord -->
 
@@ -31,7 +31,7 @@
     <link rel="icon" type="image/png" href="/assets/img/TS_FavIcon.png"/>
 
 
-    <title>Responsive resume - Tomasz Stanisz - CV Front End Developer</title>
+    <title>Tomasz Stanisz - CV Front End Developer</title>
 </head>
 
 <body>
@@ -39,7 +39,8 @@
 <!-- ============================ HEADER ========================== -->
 <header class="l-header" id="header">
     <nav class="nav bd-container">
-        <a href="#" class="nav__logo">TS</a>
+        <a href="#" class="
+        nav__logo limegreen">TS</a>
 
         <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
@@ -57,33 +58,33 @@
                 </li>
 
                 <li class="nav__item">
-                    <a href="#education" class="nav__link">
-                        <i class='bx bx-book nav__icon'></i>Education
-                    </a>
-                </li>
-
-                <li class="nav__item">
-                    <a href="#skills" class="nav__link">
-                        <i class='bx bx-receipt nav__icon'></i>Skills
-                    </a>
-                </li>
-
-                <li class="nav__item">
                     <a href="#experience" class="nav__link">
                         <i class='bx bx-briefcase-alt nav__icon'></i>Experience
                     </a>
                 </li>
 
                 <li class="nav__item">
-                    <a href="#certificates" class="nav__link">
-                        <i class='bx bx-award nav__icon'></i>Certificates
+                    <a href="#tech_stack" class="nav__link">
+                        <i class='bx bx-receipt nav__icon'></i>Tech Stack
                     </a>
                 </li>
+
+
+                <li class="nav__item">
+                    <a href="#projects" class="nav__link">
+                        <i class='bx bx-award nav__icon'></i>Projects
+                    </a>
                 </li>
 
                 <li class="nav__item">
-                    <a href="#references" class="nav__link">
-                        <i class='bx bx-link-external nav__icon'></i>References
+                    <a href="#it_education" class="nav__link">
+                        <i class='bx bx-link-external nav__icon'></i>IT Education & courses
+                    </a>
+                </li>
+
+                <li class="nav__item">
+                    <a href="#formal_education" class="nav__link">
+                        <i class='bx bx-book nav__icon'></i>Formal Education
                     </a>
                 </li>
 
@@ -92,7 +93,7 @@
 
         <div class="nav__toggle" id="nav-toggle">
 
-            <i class='bx bx-grid-alt'></i>
+            <i class='bx bx-grid-alt limegreen'></i>
         </div>
 
     </nav>
@@ -108,7 +109,6 @@
             <section class="home" id="home">
                 <div class="home__container section bd-grid">
                     <div class="home__data bd-grid">
-                        <!--                        <img src="assets/img/Thomas CV img - black-white.jpg" alt="" class="home__img">-->
                         <img src="assets/img/Capture.PNG" alt="" class="home__img">
 
                         <h1 class="home__title"> TOMASZ STANISZ</h1>
@@ -116,10 +116,11 @@
 
                         <!-- Button to download your CV saved in the pdf folder. Available for mobile  -->
                         <div>
-                            <!--                            <a href="assets/pdf/Tomasz Stanisz - Resume - Light.pdf" download="Tomasz Stanisz - Resume"-->
-                            <!--                               class="home__button-movil home__button-movil-active" id="home__button-movil-light">Download</a>-->
                             <a href="assets/pdf/Tomasz Stanisz - Resume - Dark.pdf" download="Tomasz Stanisz - Resume"
-                               class="home__button-movil-dark" id="home__button-movil-dark">Download</a>
+                               class="home__button-movil home__button-movil-active home__button-download"
+                               data-light="assets/pdf/Tomasz Stanisz - Resume - Light.pdf"
+                               data-dark="assets/pdf/Tomasz Stanisz - Resume - Dark.pdf"
+                               id="home__button-movil-light">Download</a>
                         </div>
 
                     </div>
@@ -163,9 +164,10 @@
 
 
                 <!-- Button to generate and download the pdf. Available for desktop -->
-                <!--                <i class='bx bx-download generate-pdf' title="Generate PDF" id="resume-button"></i>-->
                 <a href="assets/pdf/Tomasz Stanisz - Resume - Dark.pdf" download="Tomasz Stanisz - Resume"
-                   class="bx bx-download generate-pdf" id="home__button-movil-light">
+                   class="bx bx-download generate-pdf home__button-download"
+                   data-light="assets/pdf/Tomasz Stanisz - Resume - Light.pdf"
+                   data-dark="assets/pdf/Tomasz Stanisz - Resume - Dark.pdf">
                 </a>
 
             </section>
@@ -253,7 +255,9 @@
                                 <strong>MegaK Bootcamp Project</strong> |
                                 <br>
                                 From 07/2022 - 08/2022  </span>
-                            <p class="experience__description">Two months group project, where I had a chance to test myself as a scrum master for the team of 6 developers, also as a full stack developer on learned technologies, learning in the meantime missing pieces. Quite an adventure 😊</p>
+                            <p class="experience__description">Two months group project, where I had a chance to test
+                                myself as a scrum master for the team of 6 developers, also as a full stack developer on
+                                learned technologies, learning in the meantime missing pieces. Quite an adventure 😊</p>
                         </div>
                     </div>
 
@@ -270,7 +274,9 @@
                                 <strong>Dare Drop</strong> |
                                 <br>
                                 From 05/2022 - 06/2022  </span>
-                            <p class="experience__description">This was first oportunity to work in IT global environment for US client and remotly with part of the team from US and part from Poland. Amazing chance to see how start ups works and how dynamicly it grows.</p>
+                            <p class="experience__description">This was first oportunity to work in IT global
+                                environment for US client and remotly with part of the team from US and part from
+                                Poland. Amazing chance to see how start ups works and how dynamicly it grows.</p>
                         </div>
                     </div>
 
@@ -332,7 +338,7 @@
 
 
             <!-- ================= FORMAL EDUCATION =================== -->
-            <section class="education section" id="education">
+            <section class="education section" id="formal_education">
                 <h2 class="section-title">Formal Education</h2>
 
                 <div class="education__container bd-grid">
@@ -344,7 +350,7 @@
                             <span class="education__line"></span>
                         </div>
 
-                        <div class="formal_edcuation__data bd-grid">
+                        <div class="formal_edcucation__data bd-grid">
                             <h3 class="education_title">MASTER DEGREE <br> Finance and Accounting</h3>
                             <span class="education__studies">University of Lodz</span>
                             <span class="education__year">2012-2014</span>
@@ -364,6 +370,7 @@
                             <span class="education__year">2009-2012</span>
                         </div>
                     </div>
+                </div>
 
             </section>
 
@@ -371,7 +378,7 @@
         <div class="resume__right">
 
             <!-- ============================ TECHNOLOGIES ========================== -->
-            <section class="interests section">
+            <section class="interests section" id="tech_stack">
 
 
                 <h2 class="section-title">TECH STACK <span id="section-title__span-icon"
@@ -395,13 +402,13 @@
                         <span class="interests__name">CSS</span>
                     </div>
 
-<!--                    <div class="interests__content">-->
-<!--                        <i class="fab fa-bootstrap interests__icon icon-gray"></i>-->
-<!--                        <img class="fab interests__icon icon-color" src="./assets/media/bootstrap-4.ffded238.svg"-->
-<!--                             alt="Bootstrap icon">-->
+                    <!--                    <div class="interests__content">-->
+                    <!--                        <i class="fab fa-bootstrap interests__icon icon-gray"></i>-->
+                    <!--                        <img class="fab interests__icon icon-color" src="./assets/media/bootstrap-4.ffded238.svg"-->
+                    <!--                             alt="Bootstrap icon">-->
 
-<!--                        <span class="interests__name">Bootstrap</span>-->
-<!--                    </div>-->
+                    <!--                        <span class="interests__name">Bootstrap</span>-->
+                    <!--                    </div>-->
 
                     <div class="interests__content">
                         <img class="fab interests__icon icon-color" src="./assets/media/tailwind.svg"
@@ -420,7 +427,6 @@
                              alt="Styled Components icon">
                         <span class="interests__name">StyledComp</span>
                     </div>
-
 
 
                     <div class="interests__content">
@@ -649,7 +655,7 @@
             </section>
 
             <!-- ============================ Projects ========================== -->
-            <section class="certificate section" id="certificates">
+            <section class="certificate section" id="projects">
 
                 <h2 class="section-title"> Projects</h2>
 
@@ -744,7 +750,7 @@
             </section>
 
             <!-- ============================ IT & PROGRAMMING EDUCATION ========================== -->
-            <section class="experience section" id="education">
+            <section class="experience section" id="it_education">
                 <h2 class="section-title">IT & PROGRAMMING EDUCATION</h2>
 
                 <div class="experience__container bd-grid">

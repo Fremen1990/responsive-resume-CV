@@ -100,14 +100,20 @@ if (selectedTheme) {
     );
 }
 //Activate / deactivate the theme manually with the button
+const downloadButton = document.querySelector(".home__button-download");
 themeButton.addEventListener("click", () => {
     //Add or remove the dark/icon theme
     document.body.classList.toggle(darkTheme);
     themeButton.classList.toggle(iconTheme);
 
+    // Set the download button href based on the current theme
+    const theme = getCurrentTheme();
+    downloadButton.href = downloadButton.getAttribute(`data-${theme}`);
+
+
     // ================================ DOWNLOAD = PDF ON MOBILE ==================================//
-    downloadDarkResumeButton.classList.toggle(homeButtonMovilActive);
-    downloadLightResumeButton.classList.toggle(homeButtonMovilActive);
+    // downloadDarkResumeButton.classList.toggle(homeButtonMovilActive);
+    // downloadLightResumeButton.classList.toggle(homeButtonMovilActive);
 
     //We save the theme and the current icon that the user chose
     localStorage.setItem("selected-theme", getCurrentTheme());
