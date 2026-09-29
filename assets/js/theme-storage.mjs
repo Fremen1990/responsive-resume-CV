@@ -10,7 +10,12 @@ export function readStoredTheme(getItem) {
     const legacy = getItem(LEGACY_THEME_KEY);
     if (KNOWN_THEMES.has(legacy)) return legacy;
 
-    return "light";
+    return null;
+}
+
+export function themeForVisit(savedTheme, systemPrefersDark) {
+    if (KNOWN_THEMES.has(savedTheme)) return savedTheme;
+    return systemPrefersDark ? "dark" : "light";
 }
 
 export function persistTheme(theme, storage) {

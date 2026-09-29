@@ -23,14 +23,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="assets/css/style.css?v=20260929g">
     <script>
-        try {
-            var currentTheme = localStorage.getItem("selected-theme");
-            var legacyTheme = localStorage.getItem("seleceted-theme");
-            var storedTheme = currentTheme === "dark" || currentTheme === "light" ? currentTheme : legacyTheme;
-            if (storedTheme === "dark") document.documentElement.classList.add("dark-theme");
-        } catch (error) {
-            // Keep the light theme when storage is unavailable.
-        }
+        (function () {
+            var saved = null;
+            try {
+                var currentTheme = localStorage.getItem("selected-theme");
+                var legacyTheme = localStorage.getItem("seleceted-theme");
+                var storedTheme = currentTheme === "dark" || currentTheme === "light" ? currentTheme : legacyTheme;
+                if (storedTheme === "dark" || storedTheme === "light") saved = storedTheme;
+            } catch (error) {
+                saved = null;
+            }
+            var systemDark = false;
+            try {
+                systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            } catch (error) {
+                systemDark = false;
+            }
+            if ((saved || (systemDark ? "dark" : "light")) === "dark") {
+                document.documentElement.classList.add("dark-theme");
+            }
+        })();
     </script>
 </head>
 <body>
@@ -239,6 +251,6 @@
     <span class="visually-hidden">Back to top</span>
 </a>
 
-<script type="module" src="assets/js/main.js?v=20260929"></script>
+<script type="module" src="assets/js/main.js?v=20260929h"></script>
 </body>
 </html>

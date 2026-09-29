@@ -2,7 +2,7 @@
 
 Interactive CV published at <https://cv.devthomas.pl/>.
 
-The page is static HTML. With no saved preference it opens in the light theme. Screen and print styles share that document, and the downloadable PDF is generated from the same page.
+The page is static HTML. With no saved preference it follows the system light or dark appearance, and otherwise stays light. A saved choice wins on the next visit. Screen and print styles share that document, and the downloadable PDF is generated from the same page. Print stays light.
 
 ## Preview
 

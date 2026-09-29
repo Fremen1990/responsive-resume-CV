@@ -1,5 +1,5 @@
 import { menuAttributes, menuEscapeAction, sectionIdFromHref } from "./menu-state.mjs?v=20260929";
-import { persistTheme, readStoredTheme } from "./theme-storage.mjs?v=20260929";
+import { persistTheme, readStoredTheme, themeForVisit } from "./theme-storage.mjs?v=20260929h";
 
 const CV_HREF = "assets/pdf/Tomasz-Stanisz-CV.pdf";
 const themeButton = document.getElementById("theme-button");
@@ -13,7 +13,25 @@ function syncDownloadLinks() {
     });
 }
 
-function applyTheme(theme) {
+function readSavedTheme() {
+    return readStoredTheme((key) => {
+        try {
+            return localStorage.getItem(key);
+        } catch {
+            return null;
+        }
+    });
+}
+
+function systemPrefersDark() {
+    try {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    } catch {
+        return false;
+    }
+}
+
+function applyTheme(theme, { persist = false } = {}) {
     const isDark = theme === "dark";
     document.documentElement.classList.toggle(darkThemeClass, isDark);
 
@@ -28,22 +46,30 @@ function applyTheme(theme) {
         );
     }
 
-    try {
-        persistTheme(isDark ? "dark" : "light", localStorage);
-    } catch {
-        // Storage can be unavailable in private browsing.
+    if (persist) {
+        try {
+            persistTheme(isDark ? "dark" : "light", localStorage);
+        } catch {
+            // Storage can be unavailable in private browsing.
+        }
     }
 
     syncDownloadLinks();
 }
 
-applyTheme(readStoredTheme((key) => {
-    try {
-        return localStorage.getItem(key);
-    } catch {
-        return null;
-    }
-}));
+const savedTheme = readSavedTheme();
+applyTheme(themeForVisit(savedTheme, systemPrefersDark()), {
+    persist: savedTheme === "dark" || savedTheme === "light",
+});
+
+try {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+        if (readSavedTheme()) return;
+        applyTheme(event.matches ? "dark" : "light");
+    });
+} catch {
+    // matchMedia can be unavailable.
+}
 
 document.getElementById("print-button")?.addEventListener("click", () => {
     window.print();
@@ -53,7 +79,7 @@ themeButton?.addEventListener("click", () => {
     const next = document.documentElement.classList.contains(darkThemeClass)
         ? "light"
         : "dark";
-    applyTheme(next);
+    applyTheme(next, { persist: true });
 });
 
 const navToggle = document.getElementById("nav-toggle");
