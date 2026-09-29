@@ -1,6 +1,7 @@
 #!/bin/sh
 # Generate a text PDF from this checkout and copy it onto legacy filenames.
 # Existing downloads stay in place until the new file passes validation.
+# Cleanup stops only the server and Chrome process this script started.
 set -eu
 
 ROOT="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)"
@@ -14,22 +15,89 @@ CHROME_LOG="$WORKDIR/chrome.log"
 SERVER_LOG="$WORKDIR/server.log"
 SERVER_PID=""
 STARTED_SERVER=0
+CHROME_PID=""
+CLEANED_UP=0
+
+kill_descendants() {
+    parent="$1"
+    [ -n "$parent" ] || return 0
+    # macOS pgrep requires a pattern even when filtering by parent.
+    kids="$(pgrep -P "$parent" '.*' 2>/dev/null || true)"
+    for kid in $kids; do
+        kill_descendants "$kid"
+    done
+    kill "$parent" 2>/dev/null || true
+}
+
+sweep_profile_processes() {
+    [ -n "$PROFILE_DIR" ] || return 0
+    ps -axww -o pid= -o command= 2>/dev/null | while read -r pid command; do
+        case "$command" in
+            *"$PROFILE_DIR"*) ;;
+            *) continue ;;
+        esac
+        case "$pid" in
+            ""|0|1|"$$") continue ;;
+        esac
+        case "$command" in
+            *" ps "*|*" grep "*|*"pgrep"*) continue ;;
+        esac
+        kill "$pid" 2>/dev/null || true
+    done
+}
+
+reap_chrome() {
+    if [ -n "$CHROME_PID" ]; then
+        kill_descendants "$CHROME_PID"
+    fi
+    sweep_profile_processes
+    if [ -n "$CHROME_PID" ]; then
+        i=0
+        while [ "$i" -lt 20 ]; do
+            if ! kill -0 "$CHROME_PID" 2>/dev/null; then
+                break
+            fi
+            i=$((i + 1))
+            sleep 0.1
+        done
+        if kill -0 "$CHROME_PID" 2>/dev/null; then
+            kill -9 "$CHROME_PID" 2>/dev/null || true
+            sweep_profile_processes
+        fi
+        wait "$CHROME_PID" 2>/dev/null || true
+        CHROME_PID=""
+    fi
+}
+
+reap_server() {
+    if [ "$STARTED_SERVER" -eq 1 ] && [ -n "$SERVER_PID" ]; then
+        kill_descendants "$SERVER_PID"
+        wait "$SERVER_PID" 2>/dev/null || true
+        SERVER_PID=""
+        STARTED_SERVER=0
+    fi
+}
 
 cleanup() {
-    if [ "$STARTED_SERVER" -eq 1 ] && [ -n "$SERVER_PID" ]; then
-        kill "$SERVER_PID" 2>/dev/null || true
-        wait "$SERVER_PID" 2>/dev/null || true
+    if [ "$CLEANED_UP" -eq 1 ]; then
+        return 0
     fi
-    rm -rf "$WORKDIR"
+    CLEANED_UP=1
+    reap_chrome || true
+    reap_server || true
+    rm -rf "$WORKDIR" || true
     rm -f \
         "$CANONICAL.export-tmp" \
         "$ROOT/assets/pdf/Tomasz Stanisz - Resume - Light.pdf.export-tmp" \
         "$ROOT/assets/pdf/Tomasz Stanisz - Resume - Dark.pdf.export-tmp" \
         "$ROOT/assets/pdf/RESUME TOMASZ STANISZ - CV ENG.pdf.export-tmp" \
-        "$ROOT/assets/Tomasz Stanisz - CV.pdf.export-tmp"
+        "$ROOT/assets/Tomasz Stanisz - CV.pdf.export-tmp" || true
 }
 
 trap cleanup EXIT
+trap 'cleanup; exit 130' INT
+trap 'cleanup; exit 143' TERM
+trap 'cleanup; exit 129' HUP
 
 fail() {
     echo "$1" >&2
@@ -126,6 +194,8 @@ mkdir -p "$PROFILE_DIR"
     --no-first-run \
     --no-default-browser-check \
     --no-pdf-header-footer \
+    --disable-crash-reporter \
+    --disable-breakpad \
     --virtual-time-budget=15000 \
     --user-data-dir="$PROFILE_DIR" \
     --print-to-pdf="$TMP_PDF" \
@@ -163,13 +233,14 @@ done
 
 if kill -0 "$CHROME_PID" 2>/dev/null; then
     if pdf_is_complete; then
-        kill "$CHROME_PID" 2>/dev/null || true
-        wait "$CHROME_PID" 2>/dev/null || true
+        reap_chrome
     else
-        kill "$CHROME_PID" 2>/dev/null || true
-        wait "$CHROME_PID" 2>/dev/null || true
+        reap_chrome
         fail "Timed out before Chrome finished a complete PDF."
     fi
+else
+    wait "$CHROME_PID" 2>/dev/null || true
+    CHROME_PID=""
 fi
 
 if ! pdf_is_complete; then
@@ -232,30 +303,52 @@ reject_text "Orange LAB"
 reject_text "tomasz.stanisz@devthomas.pl"
 reject_text "approximately four years"
 
-replace_file() {
+HASH="$(shasum -a 256 "$TMP_PDF" | awk '{ print $1 }')"
+
+stage_copy() {
     dest="$1"
-    tmp="${dest}.export-tmp"
-    cp "$TMP_PDF" "$tmp"
-    mv "$tmp" "$dest"
+    cp "$TMP_PDF" "${dest}.export-tmp"
+    staged="$(shasum -a 256 "${dest}.export-tmp" | awk '{ print $1 }')"
+    if [ "$staged" != "$HASH" ]; then
+        fail "Staged copy hash mismatch: $dest"
+    fi
 }
 
-replace_file "$CANONICAL"
-replace_file "$ROOT/assets/pdf/Tomasz Stanisz - Resume - Light.pdf"
-replace_file "$ROOT/assets/pdf/Tomasz Stanisz - Resume - Dark.pdf"
-replace_file "$ROOT/assets/pdf/RESUME TOMASZ STANISZ - CV ENG.pdf"
-replace_file "$ROOT/assets/Tomasz Stanisz - CV.pdf"
+publish_copy() {
+    dest="$1"
+    mv "${dest}.export-tmp" "$dest"
+}
 
-HASH="$(shasum -a 256 "$CANONICAL" | awk '{ print $1 }')"
-for file in \
+for dest in \
     "$CANONICAL" \
     "$ROOT/assets/pdf/Tomasz Stanisz - Resume - Light.pdf" \
     "$ROOT/assets/pdf/Tomasz Stanisz - Resume - Dark.pdf" \
     "$ROOT/assets/pdf/RESUME TOMASZ STANISZ - CV ENG.pdf" \
     "$ROOT/assets/Tomasz Stanisz - CV.pdf"
 do
-    other="$(shasum -a 256 "$file" | awk '{ print $1 }')"
+    stage_copy "$dest"
+done
+
+for dest in \
+    "$CANONICAL" \
+    "$ROOT/assets/pdf/Tomasz Stanisz - Resume - Light.pdf" \
+    "$ROOT/assets/pdf/Tomasz Stanisz - Resume - Dark.pdf" \
+    "$ROOT/assets/pdf/RESUME TOMASZ STANISZ - CV ENG.pdf" \
+    "$ROOT/assets/Tomasz Stanisz - CV.pdf"
+do
+    publish_copy "$dest"
+done
+
+for dest in \
+    "$CANONICAL" \
+    "$ROOT/assets/pdf/Tomasz Stanisz - Resume - Light.pdf" \
+    "$ROOT/assets/pdf/Tomasz Stanisz - Resume - Dark.pdf" \
+    "$ROOT/assets/pdf/RESUME TOMASZ STANISZ - CV ENG.pdf" \
+    "$ROOT/assets/Tomasz Stanisz - CV.pdf"
+do
+    other="$(shasum -a 256 "$dest" | awk '{ print $1 }')"
     if [ "$other" != "$HASH" ]; then
-        fail "Hash mismatch after copy: $file"
+        fail "Hash mismatch after copy: $dest"
     fi
 done
 
