@@ -1,5 +1,5 @@
-import { menuAttributes, menuEscapeAction, sectionIdFromHref } from "./menu-state.mjs?v=20260929";
-import { persistTheme, readStoredTheme, themeForVisit } from "./theme-storage.mjs?v=20260929h";
+import { menuAttributes, menuEscapeAction, sectionIdFromHref } from "./menu-state.js?v=20260929i";
+import { persistTheme, readStoredTheme, themeForVisit } from "./theme-storage.js?v=20260929i";
 
 const CV_HREF = "assets/pdf/Tomasz-Stanisz-CV.pdf";
 const themeButton = document.getElementById("theme-button");

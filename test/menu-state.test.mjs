@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { menuAttributes, menuEscapeAction, sectionIdFromHref } from "../assets/js/menu-state.mjs";
+import { menuAttributes, menuEscapeAction, sectionIdFromHref } from "../assets/js/menu-state.js";
 
 test("closed menu is inert and not expanded", () => {
     const state = menuAttributes(false);

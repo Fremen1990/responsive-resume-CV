@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { LEGACY_THEME_KEY, THEME_KEY, persistTheme, readStoredTheme, themeForVisit } from "../assets/js/theme-storage.mjs";
+import { LEGACY_THEME_KEY, THEME_KEY, persistTheme, readStoredTheme, themeForVisit } from "../assets/js/theme-storage.js";
 
 test("uses the correctly spelled storage key", () => {
     const getItem = (key) => (key === THEME_KEY ? "light" : "dark");
