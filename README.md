@@ -50,7 +50,7 @@ Icons are inline SVG; there is no icon font. Type is Fraunces (display), Geist (
 
 ## Layout
 
-On screen: a sticky top bar (section links on tablet and desktop, a menu button on phones), a hero with the portrait, pitch and contacts, a four-figure facts strip, then experience beside a sidebar with stack, credentials and community. Print collapses this to two A4 pages: page 1 is the header, facts, TheEventa and Orange; page 2 starts at `.print-running-head` and ends with a QR code to the interactive version. Page numbers come from `@page` margin boxes.
+On screen: a sticky top bar (section links on tablet and desktop, a menu button on phones), a hero with the portrait, pitch and contacts, a four-figure facts strip, then experience beside a sidebar with stack, credentials and community. Print collapses this to two A4 pages: page 1 is the header, facts, TheEventa and Orange; page 2 starts at `.print-running-head` and ends with a QR code to the interactive version. Page numbers come from `@page` margin boxes. Each role links to its portfolio case study (`https://devthomas.pl/work/…`); on screen the link shows its title, and in print it also shows the short address (for example `devthomas.pl/work/orange-cms`) so it can be typed from paper while staying clickable in the PDF.
 
 The previous single-column design is kept on the `v2/old` branch.
 
