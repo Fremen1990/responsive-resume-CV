@@ -116,6 +116,9 @@ a {
 
 .skip-link {
     position: absolute;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     left: var(--space-3);
     top: -48px;
     z-index: calc(var(--z-fixed) + 1);
@@ -169,6 +172,9 @@ html.js .js-enhance {
 }
 
 .nav__logo {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-family: var(--font-mono);
     font-size: 14px;
     font-weight: 500;
@@ -408,6 +414,9 @@ html.js .js-enhance {
 
 a.contact-list__value,
 .contact-list__value a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     color: var(--text);
     text-decoration: none;
 }
@@ -809,7 +818,107 @@ html.js .scrolltop.show-scroll {
     display: flex;
 }
 
+/* Closing call to action */
+
+.closing {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: var(--space-7);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--separator);
+}
+
+.closing__title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.closing__text {
+    color: var(--text-soft);
+}
+
+.closing__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.closing__actions .button {
+    flex: 0 1 auto;
+}
+
 /* Breakpoints */
+
+@media screen and (max-width: 639px) {
+    .hero__intro {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero__top {
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-4);
+    }
+
+    .hero__availability {
+        display: block;
+        max-width: 100%;
+        border-radius: 16px;
+        font-size: 12px;
+        text-align: center;
+        text-wrap: balance;
+    }
+
+    .hero__availability .dot {
+        display: inline-block;
+        margin-right: var(--space-2);
+        vertical-align: 1px;
+    }
+
+    .hero__pitch {
+        text-wrap: balance;
+    }
+
+    .contact-list__label {
+        font-size: 14px;
+    }
+
+    .contact-list__value {
+        overflow-wrap: normal;
+    }
+
+    .copy-button {
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border-radius: 50%;
+    }
+
+    .copy-button__text {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+    }
+
+    .role h3 {
+        font-size: 19px;
+    }
+
+    .role--compact h3 {
+        font-size: 17px;
+    }
+
+    .closing__actions .button {
+        flex: 1 1 100%;
+    }
+}
 
 @media screen and (min-width: 640px) {
     .hero__photo {
@@ -990,6 +1099,7 @@ html.js .scrolltop.show-scroll {
     }
 
     .l-header,
+    .closing,
     .skip-link,
     .scrolltop,
     .hero__actions,
@@ -1093,8 +1203,11 @@ html.js .scrolltop.show-scroll {
         display: none;
     }
 
-    .contact-list__value {
+    .contact-list__value,
+    a.contact-list__value,
+    .contact-list__value a {
         display: block;
+        min-height: 0;
         text-align: left;
     }
 
