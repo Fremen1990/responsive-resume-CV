@@ -1,5 +1,6 @@
-import { menuAttributes, menuEscapeAction, sectionIdFromHref } from "./menu-state.js?v=20260929i";
-import { persistTheme, readStoredTheme, themeForVisit } from "./theme-storage.js?v=20260929i";
+import { COPY_RESET_MS, copyFeedback, copyText } from "./copy-text.js?v=20260930a";
+import { menuAttributes, menuEscapeAction, sectionIdFromHref } from "./menu-state.js?v=20260930a";
+import { persistTheme, readStoredTheme, themeForVisit } from "./theme-storage.js?v=20260930a";
 
 const CV_HREF = "assets/pdf/Tomasz-Stanisz-CV.pdf";
 const themeButton = document.getElementById("theme-button");
@@ -75,6 +76,42 @@ document.getElementById("print-button")?.addEventListener("click", () => {
     window.print();
 });
 
+function legacyCopy(text) {
+    const field = document.createElement("textarea");
+    field.value = text;
+    field.setAttribute("readonly", "");
+    field.style.position = "fixed";
+    field.style.opacity = "0";
+    document.body.append(field);
+    field.select();
+    try {
+        return document.execCommand("copy");
+    } finally {
+        field.remove();
+    }
+}
+
+const copyButton = document.getElementById("copy-email");
+const copyStatus = document.getElementById("copy-status");
+let copyResetTimer = 0;
+
+copyButton?.addEventListener("click", async () => {
+    const text = copyButton.dataset.copy || "";
+    const copied = await copyText(text, { clipboard: navigator.clipboard, fallback: legacyCopy });
+    const feedback = copyFeedback(copied, text);
+    const label = copyButton.querySelector(".copy-button__text");
+    if (label) label.textContent = feedback.label;
+    copyButton.classList.toggle("is-copied", copied);
+    if (copyStatus) copyStatus.textContent = feedback.status;
+
+    window.clearTimeout(copyResetTimer);
+    copyResetTimer = window.setTimeout(() => {
+        if (label) label.textContent = "Copy";
+        copyButton.classList.remove("is-copied");
+        if (copyStatus) copyStatus.textContent = "";
+    }, COPY_RESET_MS);
+});
+
 themeButton?.addEventListener("click", () => {
     const next = document.documentElement.classList.contains(darkThemeClass)
         ? "light"
@@ -124,7 +161,7 @@ document.addEventListener("keydown", (event) => {
     navToggle.focus();
 });
 
-const navSectionIds = ["home", "profile", "experience", "skills", "education"];
+const navSectionIds = ["home", "experience", "skills", "education"];
 const sections = navSectionIds
     .map((id) => document.getElementById(id))
     .filter(Boolean);
@@ -134,7 +171,7 @@ function scrollActive() {
     let currentId = "home";
 
     sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 80;
+        const sectionTop = section.getBoundingClientRect().top + scrollY - 120;
         if (scrollY >= sectionTop) currentId = section.getAttribute("id") || currentId;
     });
 

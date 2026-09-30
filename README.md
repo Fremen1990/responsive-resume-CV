@@ -15,11 +15,13 @@ One HTML document is the content source for the screen and the PDF. There is no 
 | `assets/js/main.js` | Menu, theme and the single download address. Loaded as `type="module"`. |
 | `assets/js/theme-storage.js` | Saved theme, legacy key migration and system-theme fallback. |
 | `assets/js/menu-state.js` | Open/closed menu state, Escape behavior and section ids. |
+| `assets/js/copy-text.js` | Copy-email button: clipboard write with a fallback, and the announced result. |
+| `assets/qr-code_devthomas-cv.svg` | QR code printed on page 2 of the PDF, pointing readers to the interactive version. |
 | `assets/img/tomasz-stanisz.jpg` | Portrait used on screen and in print. |
 | `assets/pdf/Tomasz-Stanisz-CV.pdf` | The only current CV file. The button always points here. |
 | `scripts/export-pdf.sh` | Local Chrome export. It does not upload anything. |
 | `package.json` | Marks the checkout as ES modules so `node --test` can import the `.js` helpers. It is not an application runtime. |
-| `test/*.mjs` | Theme storage and menu state. They do not prove focus order or layout in a browser. |
+| `test/*.mjs` | Theme storage, menu state and copy-to-clipboard. They do not prove focus order or layout in a browser. |
 
 `main.js` imports the two helpers. The small script in `index.html` applies a saved or system theme before the modules load, so the first paint does not flash the wrong theme.
 
@@ -44,7 +46,13 @@ These filenames are copies of that same light PDF, kept so older links keep work
 - `assets/pdf/RESUME TOMASZ STANISZ - CV ENG.pdf`
 - `assets/Tomasz Stanisz - CV.pdf`
 
-Screen icons come from Boxicons 2.1.4 (`https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css`). The typeface is Inter, loaded from Google Fonts, with a system-font fallback. Theme choices are stored in `localStorage` under `selected-theme`. The older misspelled key `seleceted-theme` is still read once and then removed.
+Icons are inline SVG; there is no icon font. Type is Fraunces (display), Geist (text) and Geist Mono (labels and dates), loaded from Google Fonts, with system-font fallbacks. The page carries schema.org `ProfilePage`/`Person` JSON-LD so search engines can show the name, title and profile links. Theme choices are stored in `localStorage` under `selected-theme`. The older misspelled key `seleceted-theme` is still read once and then removed.
+
+## Layout
+
+On screen: a sticky top bar (section links on tablet and desktop, a menu button on phones), a hero with the portrait, pitch and contacts, a four-figure facts strip, then experience beside a sidebar with stack, credentials and community. Print collapses this to two A4 pages: page 1 is the header, facts, TheEventa and Orange; page 2 starts at `.print-running-head` and ends with a QR code to the interactive version. Page numbers come from `@page` margin boxes.
+
+The previous single-column design is kept on the `v2/old` branch.
 
 ## Consistency
 
@@ -88,4 +96,4 @@ On success, failure or interruption, the script stops only the temporary server 
 
 This repository has no deploy command, no build, and no hosting config. Publishing means uploading the static files to the host for `https://cv.devthomas.pl/`. That host is Hostinger, served by LiteSpeed. JavaScript there is sent as `application/x-javascript`, which browsers accept for these modules.
 
-`./scripts/export-pdf.sh` updates only the local PDFs. The public site stays on its last upload until those files are published separately. On 2026-09-29 the live HTML, scripts and PDF were last modified at 09:03 UTC. That live HTML still requests Boxicons from the unpinned `@latest` URL; the pin to 2.1.4 is in this checkout and is not on the public site yet.
+`./scripts/export-pdf.sh` updates only the local PDFs. The public site stays on its last upload until those files are published separately. On 2026-09-29 the live HTML, scripts and PDF were last modified at 09:03 UTC. 
