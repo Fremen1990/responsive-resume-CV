@@ -149,6 +149,16 @@ document.querySelectorAll(".nav__link").forEach((link) => {
     });
 });
 
+document.addEventListener("click", (event) => {
+    if (!navMenu?.classList.contains("show-menu")) return;
+    if (navMenu.contains(event.target) || navToggle?.contains(event.target)) return;
+    setMenuOpen(false);
+});
+
+window.addEventListener("scroll", () => {
+    if (navMenu?.classList.contains("show-menu")) setMenuOpen(false);
+}, { passive: true });
+
 document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape" || !navMenu || !navToggle) return;
     const action = menuEscapeAction({
